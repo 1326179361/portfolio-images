@@ -1,0 +1,281 @@
+/* ========================================
+   Soft UI Evolution - Global Styles
+   Neumorphism进化版：柔和双层阴影、凸起/凹陷效果
+   ======================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+:root {
+  /* Soft UI Evolution Color Palette */
+  --bg-primary: #E8EDF5;
+  --bg-secondary: #DFE6F0;
+  --shadow-dark: #D1D9E6;
+  --shadow-light: #F0F4FA;
+  --text-primary: #4A5568;
+  --text-secondary: #7B8794;
+  --text-muted: #A0ABC0;
+  
+  /* Accent Colors - 主色 #3E5EFF + 辅助色 #FF457A */
+  --accent-primary: #3E5EFF;
+  --accent-secondary: #6B82FF;
+  --accent-glow: rgba(62, 94, 255, 0.25);
+  --accent-warm: #FF457A;
+  --accent-green: #7BB89A;
+  
+  /* Gradient accents */
+  --gradient-hero-start: #2D3A52;
+  --gradient-hero-mid: #1a2235;
+  --gradient-hero-end: #0d1320;
+  --gradient-accent: linear-gradient(135deg, #3E5EFF, #FF457A);
+  
+  /* Shadows */
+  --shadow-raised: 8px 8px 16px var(--shadow-dark), -8px -8px 16px var(--shadow-light);
+  --shadow-raised-sm: 4px 4px 8px var(--shadow-dark), -4px -4px 8px var(--shadow-light);
+  --shadow-raised-lg: 12px 12px 24px var(--shadow-dark), -12px -12px 24px var(--shadow-light);
+  --shadow-inset: inset 4px 4px 8px var(--shadow-dark), inset -4px -4px 8px var(--shadow-light);
+  --shadow-inset-sm: inset 2px 2px 4px var(--shadow-dark), inset -2px -2px 4px var(--shadow-light);
+  
+  /* Spacing */
+  --content-max-width: 1440px;
+  --section-padding: 100px 40px;
+  --card-radius: 20px;
+  --btn-radius: 14px;
+  
+  /* Typography */
+  --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-display: 'Space Grotesk', var(--font-primary);
+  
+  /* Transitions */
+  --transition-fast: 0.15s ease-out;
+  --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-spring: 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-primary);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--text-muted);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
+}
+
+/* Selection */
+::selection {
+  background: var(--accent-primary);
+  color: white;
+}
+
+/* ========================================
+   Utility Classes - Soft UI Components
+   ======================================== */
+
+.neu-raised {
+  background: var(--bg-primary);
+  border: none;
+  border-radius: var(--card-radius);
+  box-shadow: var(--shadow-raised);
+  transition: box-shadow var(--transition-normal), transform var(--transition-normal);
+}
+
+.neu-raised:hover {
+  box-shadow: 10px 10px 20px var(--shadow-dark), -10px -10px 20px var(--shadow-light);
+}
+
+.neu-raised-sm {
+  background: var(--bg-primary);
+  border: none;
+  border-radius: 14px;
+  box-shadow: var(--shadow-raised-sm);
+}
+
+.neu-inset {
+  background: var(--bg-primary);
+  border: none;
+  border-radius: var(--card-radius);
+  box-shadow: var(--shadow-inset);
+}
+
+.neu-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 28px;
+  background: var(--bg-primary);
+  border: none;
+  border-radius: var(--btn-radius);
+  box-shadow: var(--shadow-raised-sm);
+  color: var(--text-primary);
+  font-family: var(--font-primary);
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-spring);
+  text-decoration: none;
+}
+
+.neu-btn:hover {
+  box-shadow: 6px 6px 12px var(--shadow-dark), -6px -6px 12px var(--shadow-light);
+  transform: translateY(-2px);
+  color: var(--accent-primary);
+}
+
+.neu-btn:active {
+  box-shadow: var(--shadow-inset-sm);
+  transform: translateY(0);
+}
+
+.neu-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 16px;
+  background: var(--bg-primary);
+  border: none;
+  border-radius: 50px;
+  box-shadow: var(--shadow-raised-sm);
+  color: var(--text-secondary);
+  font-size: 0.82rem;
+  font-weight: 500;
+  transition: all var(--transition-fast);
+}
+
+.neu-tag:hover {
+  color: var(--accent-primary);
+  box-shadow: 3px 3px 6px var(--shadow-dark), -3px -3px 6px var(--shadow-light);
+}
+
+/* ========================================
+   Layout Utilities
+   ======================================== */
+
+.container {
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.section {
+  padding: var(--section-padding);
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 16px;
+  letter-spacing: -0.02em;
+}
+
+.section-subtitle {
+  font-size: clamp(1rem, 1.5vw, 1.15rem);
+  color: var(--text-secondary);
+  margin-bottom: 48px;
+  max-width: 600px;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  :root {
+    --section-padding: 80px 28px;
+  }
+  .container {
+    padding: 0 28px;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --section-padding: 60px 20px;
+    --card-radius: 16px;
+  }
+  .container {
+    padding: 0 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --section-padding: 48px 16px;
+  }
+  .container {
+    padding: 0 16px;
+  }
+}
+
+/* ========================================
+   Animations & Transitions
+   ======================================== */
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.8; }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+/* ========================================
+   App Container
+   ======================================== */
+
+.app-wrapper {
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
+}
+
+#root {
+  min-height: 100vh;
+  position: relative;
+}
