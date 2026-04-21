@@ -1,0 +1,18 @@
+node_modules
+dist
+.git
+.DS_Store
+*.log
+.vercel
+
+# 图片文件通过 CDN 加载，不需要上传到 Vercel
+public/images/
+
+# 图片文件通过 CDN 加载，不需要上传到 Vercel
+public/images/
+
+# 图片文件通过 CDN 加载，不需要上传到 Vercel
+public/images/
+
+# 图片文件通过 CDN 加载，不需要上传到 Vercel
+public/images/

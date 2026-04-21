@@ -1,0 +1,6 @@
+public/images/
+src/
+public/
+dist/
+node_modules/
+.vercel/
