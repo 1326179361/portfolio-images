@@ -43,7 +43,7 @@
   
   /* Typography */
   --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-display: 'Space Grotesk', var(--font-primary);
+  --font-display: 'Comfortaa', 'Space Grotesk', var(--font-primary);
   
   /* Transitions */
   --transition-fast: 0.15s ease-out;
