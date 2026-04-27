@@ -17,51 +17,42 @@ function HeroSection() {
       minHeight: '600px',
       display: 'flex',
       alignItems: 'center',
-      justifyContent: 'center',
       overflow: 'hidden',
     }}>
       {/* Three.js Background */}
       <div style={{
         position: 'absolute',
         inset: 0,
-        background: 'linear-gradient(180deg, #0d1320 0%, #1a2235 40%, #2D3A52 70%, #3D5A80 100%)',
+        background: '#080c14',
         zIndex: 0,
       }}>
         <HeroCanvas height="100%" />
-        
-        {/* Gradient overlays for depth */}
-        <div style={{
-          position: 'absolute',
-          bottom: 0,
-          left: 0,
-          right: 0,
-          height: '200px',
-          background: 'linear-gradient(to top, var(--bg-primary) 0%, transparent 100%)',
-          zIndex: 1,
-        }} />
+
+
       </div>
 
-      {/* Slogan Content */}
+      {/* Left: Text Content */}
       <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0, x: -40 }}
+        animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: 0.3 }}
         style={{
           position: 'relative',
           zIndex: 2,
-          textAlign: 'center',
-          maxWidth: '900px',
-          padding: '0 40px',
+          maxWidth: '580px',
+          padding: '0 60px',
+          marginLeft: '5%',
+          marginTop: '-8vh',
         }}
       >
         {/* Decorative line */}
         <motion.div
           initial={{ width: 0 }}
-          animate={{ width: '80px' }}
+          animate={{ width: '60px' }}
           transition={{ duration: 0.8, delay: 0.6 }}
           style={{
             height: '3px',
-            margin: '0 auto 28px',
+            marginBottom: '28px',
             borderRadius: '2px',
             background: 'linear-gradient(90deg, #3E5EFF, #FF457A)',
             boxShadow: '0 0 12px rgba(139, 170, 204, 0.4)',
@@ -69,29 +60,45 @@ function HeroSection() {
         />
 
         <h1 style={{
-          fontFamily: "'Space Grotesk', sans-serif",
-          fontSize: 'clamp(1.8rem, 4.5vw, 3.2rem)',
+          fontFamily: "'Comfortaa', sans-serif",
+          fontSize: 'clamp(3.2rem, 7vw, 5.2rem)',
           fontWeight: 700,
           color: '#E8EDF5',
-          lineHeight: 1.25,
-          marginBottom: '16px',
+          lineHeight: 1.5,
+          marginBottom: '32px',
           letterSpacing: '-0.02em',
           textShadow: '0 2px 30px rgba(62, 94, 255, 0.3)',
         }}>
-          Design in Silence.
-          <br />
-          <span style={{ color: '#3E5EFF' }}>Let the Work Speak.</span>
+          <div style={{ marginBottom: '8px' }}>Technology makes possibilities.</div>
+          <div style={{ marginBottom: '8px' }}>Design makes solutions.</div>
+          <div>Art makes questions.</div>
         </h1>
 
         <p style={{
-          fontSize: 'clamp(0.95rem, 1.5vw, 1.15rem)',
-          color: 'rgba(232, 237, 245, 0.55)',
-          maxWidth: '550px',
-          margin: '0 auto',
+          fontSize: 'clamp(0.9rem, 1.3vw, 1.05rem)',
+          color: 'rgba(232, 237, 245, 0.65)',
+          maxWidth: '480px',
           lineHeight: 1.7,
+          marginBottom: '32px',
         }}>
           {personalInfo.slogan}
         </p>
+
+        {/* Subtitle */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.2, duration: 0.8 }}
+        >
+          <span style={{
+            fontSize: '0.8rem',
+            color: 'rgba(232, 237, 245, 0.45)',
+            letterSpacing: '0.1em',
+            textTransform: 'uppercase',
+          }}>
+            UX Designer ＆ Digital Creator
+          </span>
+        </motion.div>
 
         {/* Scroll indicator */}
         <motion.div
@@ -99,12 +106,11 @@ function HeroSection() {
           transition={{ repeat: Infinity, duration: 2, ease: 'easeInOut' }}
           style={{
             position: 'absolute',
-            bottom: '-80px',
-            left: '50%',
-            transform: 'translateX(-50%)',
+            bottom: '-100px',
+            left: '60px',
             display: 'flex',
             flexDirection: 'column',
-            alignItems: 'center',
+            alignItems: 'flex-start',
             gap: '6px',
             color: 'rgba(232, 237, 245, 0.35)',
             fontSize: '0.75rem',
@@ -114,6 +120,8 @@ function HeroSection() {
           <div style={{ width: '1px', height: '24px', background: 'rgba(232, 237, 245, 0.25)' }} />
         </motion.div>
       </motion.div>
+
+      {/* Right side: 3D visuals are in the canvas background */}
     </section>
   );
 }
@@ -132,7 +140,7 @@ function AboutSection() {
       style={{
         background: 'var(--bg-primary)',
         position: 'relative',
-        paddingTop: '80px',
+        paddingTop: '100px',
         paddingBottom: '80px',
       }}
     >
@@ -287,7 +295,7 @@ function InfoItemLarge({ icon, label, value, highlight = false }: { icon: React.
         }}>{label}</span>
         <span style={{ 
           fontSize: '1.05rem', 
-          color: highlight ? '#FF457A' : 'var(--text-secondary)',
+          color: highlight ? '#FF457A' : '#4A5568',
           fontWeight: highlight ? 600 : 400,
           lineHeight: 1.4,
         }}>{value}</span>
@@ -567,7 +575,7 @@ function ProjectCard({ project, index }: { project: typeof keyProjects[0]; index
           width: '12px',
           height: '12px',
           borderRadius: '50%',
-          background: project.tagType === 'new' ? '#FF457A' : '#3E5EFF',
+          background: '#3E5EFF',
           flexShrink: 0,
         }} />
         <h3 style={{
@@ -582,8 +590,8 @@ function ProjectCard({ project, index }: { project: typeof keyProjects[0]; index
         <span style={{
           padding: '4px 12px',
           borderRadius: '50px',
-          background: project.tagType === 'new' ? 'rgba(255, 69, 122, 0.1)' : 'rgba(62, 94, 255, 0.1)',
-          color: project.tagType === 'new' ? '#FF457A' : '#3E5EFF',
+          background: 'rgba(62, 94, 255, 0.1)',
+          color: '#3E5EFF',
           fontSize: '0.75rem',
           fontWeight: 600,
         }}>
@@ -596,13 +604,13 @@ function ProjectCard({ project, index }: { project: typeof keyProjects[0]; index
         <h4 style={{
           fontSize: '0.85rem',
           fontWeight: 600,
-          color: 'var(--accent-primary)',
+          color: '#4A5568',
           marginBottom: '8px',
           display: 'flex',
           alignItems: 'center',
           gap: '6px',
         }}>
-          <span style={{ width: '4px', height: '4px', borderRadius: '50%', background: 'var(--accent-primary)' }} />
+          <span style={{ width: '4px', height: '4px', borderRadius: '50%', background: '#4A5568' }} />
           项目背景
         </h4>
         <p style={{
@@ -620,13 +628,13 @@ function ProjectCard({ project, index }: { project: typeof keyProjects[0]; index
         <h4 style={{
           fontSize: '0.85rem',
           fontWeight: 600,
-          color: 'var(--accent-primary)',
+          color: '#4A5568',
           marginBottom: '8px',
           display: 'flex',
           alignItems: 'center',
           gap: '6px',
         }}>
-          <span style={{ width: '4px', height: '4px', borderRadius: '50%', background: 'var(--accent-primary)' }} />
+          <span style={{ width: '4px', height: '4px', borderRadius: '50%', background: '#4A5568' }} />
           执行过程
         </h4>
         <p style={{
@@ -649,7 +657,7 @@ function ProjectCard({ project, index }: { project: typeof keyProjects[0]; index
         <h4 style={{
           fontSize: '0.85rem',
           fontWeight: 600,
-          color: '#3E5EFF',
+          color: '#4A5568',
           marginBottom: '12px',
           display: 'flex',
           alignItems: 'center',
@@ -681,7 +689,7 @@ function ProjectCard({ project, index }: { project: typeof keyProjects[0]; index
               boxShadow: 'var(--shadow-raised-sm)',
               fontSize: '0.85rem',
               fontWeight: 600,
-              color: '#FF457A',
+              color: '#4A5568',
             }}>
               {highlight}
             </span>
@@ -807,7 +815,7 @@ function EducationSection() {
           style={{ textAlign: 'center', marginBottom: '48px' }}
         >
           <h2 style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: 'clamp(1.8rem, 3vw, 2.4rem)', color: 'var(--text-primary)', letterSpacing: '-0.02em' }}>
-            学历与认证
+            学历与语言
           </h2>
         </motion.div>
 

@@ -117,6 +117,11 @@ const auroraFragmentShader = `
     vignette = smoothstep(0.1, 0.8, vignette);
     finalColor *= vignette * 1.15;
 
+    // Increase saturation
+    float saturation = 1.4;
+    float gray = dot(finalColor, vec3(0.299, 0.587, 0.114));
+    finalColor = mix(vec3(gray), finalColor, saturation);
+
     gl_FragColor = vec4(finalColor, 1.0);
   }
 `;
